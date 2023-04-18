@@ -1,0 +1,41 @@
+<?php
+$action = new Controller_Core_Action();
+
+?>
+
+
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark ">
+  <div class="container-fluid header row">
+    <ul class="navbar-nav">
+        <li class="nav-item col">
+            <a class="nav-link" href="<?php echo $action->getUrl()->getUrl('product','grid'); ?>">Product</a>
+        </li>
+        <li class="nav-item col">
+            <a class="nav-link" href="<?php echo $action->getUrl()->getUrl('category','grid'); ?>">Category</a>
+        </li>
+        <li class="nav-item col">
+            <a class="nav-link" href="<?php echo $action->getUrl()->getUrl('customer','grid'); ?>">Customer</a>
+        </li> 
+        <li class="nav-item col">
+            <a class="nav-link" href="<?php echo $action->getUrl()->getUrl('vendor','grid'); ?>">Vendor</a>
+        </li>
+        <li class="nav-item col">
+            <a class="nav-link" href="<?php echo $action->getUrl()->getUrl('salesman','grid'); ?>">Salesman</a>
+        </li>
+        <li class="nav-item col">
+            <a class="nav-link" href="<?php echo $action->getUrl()->getUrl('shipping','grid'); ?>">Shipping Method</a>
+        </li>
+        <li class="nav-item col">
+            <a class="nav-link" href="<?php echo $action->getUrl()->getUrl('payment','grid'); ?>">Payment Method</a>
+        </li>
+        <li class="nav-item col">
+            <a class="nav-link" href="<?php echo $action->getUrl()->getUrl('admin','grid'); ?>">Admin</a>
+        </li>
+        <li class="nav-item col">
+            <a class="nav-link" href="<?php echo $action->getUrl()->getUrl('eav_attribute','grid'); ?>">EAV Attribute</a>
+        </li>
+    </ul>
+  </div>
+</nav>
+</body>

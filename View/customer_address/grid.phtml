@@ -1,0 +1,28 @@
+<?php
+$address = $this->getAddress()->getData();
+?>
+
+<table class="table table-bordered table-hover w-100">
+	<tr>
+		<th>Address_id</th>
+		<th>Address</th>
+		<th>City</th>
+		<th>State</th>
+		<th>Country</th>
+		<th>Zip_code</th>
+		<th> customer_id</th>
+
+	</tr>
+	<tr>
+			<td><?php echo $address->address_id?> </td>
+			<td><?php echo $address->address;?></td>
+			<td><?php echo $address->city;?></td>
+			<td><?php echo $address->state;?></td>
+			<td><?php echo $address->country;?></td>
+			<td><?php echo $address->zip_code;?></td>
+			<td><?php echo $address->customer_id;?></td>
+		
+	</tr>
+</table>
+</body>
+</html>

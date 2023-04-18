@@ -1,0 +1,28 @@
+<?php
+$result = $this->address;
+?>
+
+<table class="table table-bordered table-hover w-100">
+	<tr>
+		<th>Address_id</th>
+		<th>Address</th>
+		<th>City</th>
+		<th>State</th>
+		<th>Country</th>
+		<th>Zip_code</th>
+		<th>Vendor_id</th>
+
+	</tr>
+		
+		 
+	<tr>
+		<td><?php echo $result->address_id;?></td>
+		<td><?php echo $result->address;?></td>
+		<td><?php echo $result->city;?></td>
+		<td><?php echo $result->state;?></td>
+		<td><?php echo $result->country;?></td>
+		<td><?php echo $result->zipcode;?></td>
+		<td><?php echo $result->vendor_id;?></td>
+		
+	</tr>
+</table>

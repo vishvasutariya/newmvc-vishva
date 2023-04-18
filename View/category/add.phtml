@@ -1,0 +1,70 @@
+<?php
+echo "<pre>";
+$result=$this->getCategory();
+// print_r($result);
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>add category</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+	<?php
+		require 'View\html\header.phtml';
+		?>
+	<form action="<?php echo $this->getUrl()->getUrl('category','save');?>" method="POST"> 
+		<table width="20%">
+			<tr>
+				<td><h3> ADD CATEGORY</h3></td>
+				<td><button name="submit" class="btn btn-primary">SAVE</button></td>
+			</tr>
+		</table>
+
+		<table>
+			
+			<tr>
+					<th> NAME :</th>
+					<td><input type="text" name="category[name]"></td>
+			</tr>
+			<tr>
+				<th>parent category:</th>
+				<td>
+					<select name="category[parent_id]">
+						<option value="NULL">select</option>
+							<?php foreach ($result as $category):?>
+						<option value="<?php echo $category->category_id;?>">
+								 <?php echo $category->name;
+							 ?>
+						</option>
+					<?php endforeach; ?>
+					</select>
+				</td>
+			</tr>
+			<tr>
+					<th> status</th>
+					<td> 
+						<select name="category[status]">
+							<option> Yes</option>
+							<option> No</option>
+						</select>
+					</td>
+			</tr>
+			 
+			<tr>
+					<th> Description</th>
+					<td> <input type="text" name="category[description]"></td>
+			</tr>
+	
+			
+			 
+
+		</table>
+		
+	</form>
+
+</body>
+</html>

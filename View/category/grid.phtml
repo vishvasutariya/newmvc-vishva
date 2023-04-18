@@ -1,0 +1,47 @@
+<?php
+$result=$this->getCollection();
+// print_r($result);
+?>
+
+		<div class="row">
+	 	<div class="col-10">
+	 		<h3>CATEGORY</h3>
+	 	</div>
+	 	<div class="col-2">
+		 <div class="btn btn-info link-secondary"><a href="<?php echo $this->getUrl('category','add'); ?>">ADD CATEGORY
+		 </a></div> 
+	 	</div>
+	</div>
+		<table class="table table-bordered w-100">
+			
+			<tr>
+				<th>CategoryId</th>
+				<th>NAME</th>
+				<th>PATH</th>
+				<th>Status</th>
+				<th>Description</th>
+				<th>CreatedAt</th>
+				<th>UpdatedAt</th>
+				<th>Edit</th>
+				<th>Delete</th>
+				
+			</tr>
+
+			<?php foreach ($result->getData() as $row):  ?>
+			<tr>
+				<td><?php  echo $row->category_id;?> </td>
+				<td><?php echo $row->name;?></td>
+				<td><?php echo  $row->getPathName(); ?></td>
+				<td><?php echo $row->getstatustext();?></td>
+				<td><?php echo $row->description;?></td>
+				<td><?php echo $row->create_at;?></td>
+				<td><?php echo $row->update_at;?></td>
+				<td><a href="<?php echo $this->getUrl('category','edit',
+				['category_id'=>$row->category_id]);?>">Edit</a></td>
+				<td><a href="<?php echo $this->getUrl('category','delete',['category_id'=>$row->category_id]);?>">Delete</a></td>
+				
+			</tr>
+			<?php endforeach; ?>
+		</table>
+	</body>
+</html>

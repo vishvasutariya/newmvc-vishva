@@ -1,0 +1,58 @@
+ <?php
+$salesman= $this->salesman;
+?> 
+
+	<form action="<?php echo $this->getUrl('salesman','save');?>" method="POST">
+		<table width="20%">
+			<tr>
+				<td><h3> SALESMAN</h3></td>
+				<td><button class="btn btn-primary">SAVE</button></td>
+			</tr>
+		</table>
+		<table>
+			 
+			
+			<tr>
+				<td>Fname :</td>
+				<td><input  type="text" name="salesman[fname]" value="<?php echo $salesman->fname;?>"></td>
+			</tr>
+			<tr>
+				<td>Lname :</td>
+				<td><input  type="text" name="salesman[lname]" value="<?php echo $salesman->lname;?>"></td>
+			</tr>
+			<tr>
+				<td>Email :</td>
+				<td><input type="text" name="salesman[email]" value="<?php echo $salesman->email;?>"></td>
+			</tr>
+			<tr>
+				<td>Gender :</td>
+				<td>
+					<select name="salesman[gender]" value="<?php echo $salesman->gender;?>">
+						<option>Female</option>
+						<option>Male</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>Moble :</td>
+				<td><input type="number" name="salesman[mobile]" value="<?php echo $salesman->mobile;?>"></td>
+			</tr>
+			<tr>
+				<td>Status :</td>
+				<td>
+					<select name="salesman[status]" value="<?php echo $salesman->status;?>">
+						<option>yes</option>
+						<option>no</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>Company :</td>
+				<td><input type="number" name="salesman[company]" value="<?php echo $salesman->company;?>"></td>
+			</tr>
+			<?php
+				require_once 'View\salesman_address\edit.phtml';
+			?>
+		</table>
+	</form>
+

@@ -1,0 +1,74 @@
+ <?php
+$vendors = $this->vendors;
+?> 
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>edit vendor</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+	<?php
+		require 'View\html\header.phtml';
+		?>
+	<form action="<?php echo $this->getUrl('vendor','save');?>" method="POST">
+		<table width="20%">
+			<tr>
+				<td><h3>Edit Vendor</h3></td>
+				<td><button class="btn btn-primary">SAVE</button></td>
+			</tr>
+		</table>
+		<table>
+			 
+			<tr>
+				<td>VendorId :</td>
+				<td><input type="number" name="vendor[vendor_id]" value="<?php echo $vendors->vendor_id;?>"></td>
+			</tr>
+			<tr>
+				<td>Fname :</td>
+				<td><input type="text" name="vendor[fname]" value="<?php echo $vendors->fname;?>"></td>
+			</tr>
+			<tr>
+				<td>Lname :</td>
+				<td><input type="text" name="vendor[lname]" value="<?php echo $vendors->lname;?>"></td>
+			</tr>
+			<tr>
+				<td>Email :</td>
+				<td><input type="text" name="vendor[email]" value="<?php echo $vendors->email;?>"></td>
+			</tr>
+			<tr>
+				<td>Gender :</td>
+				<td>
+					<select name="vendor[gender]" value="<?php echo $vendors->gender;?>">
+						<option>Female</option>
+						<option>Male</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>Moble :</td>
+				<td><input type="number" name="vendor[mobile]" value="<?php echo $vendors->mobile;?>"></td>
+			</tr>
+			<tr>
+				<td>Status :</td>
+				<td>
+					<select name="vendor[status]" value="<?php echo $vendors->status;?>">
+						<option>yes</option>
+						<option>no</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>Company :</td>
+				<td><input type="number" name="vendor[company]" value="<?php echo $vendors->company;?>"></td>
+			</tr>
+			<?php
+				require_once 'View\vendor_address\edit.phtml';
+			?>
+		</table>
+	</form>
+
+</body>
+</html>

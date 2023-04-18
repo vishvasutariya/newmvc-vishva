@@ -1,0 +1,41 @@
+<?php
+$result=$this->getCollection();
+?>
+
+		<div class="row">
+			<div class="col-10">
+				<h3>SHIPPING METHOD</h3>
+			</div>
+			<div class="col-2">
+		<div class="btn btn-info link-secondary"><a href="<?php echo $this->getUrl('shipping','add'); ?>">ADD SHIPPING</a></div>
+	</div>
+			
+		</div>
+		<table class="table table-bordered table-hover w-100">
+			
+			<tr>
+				<th>ShippingId</th>
+				<th>NAME</th>
+				<th>Amount</th>
+				<th>Status</th>
+				<th>CreatedAt</th>
+				<th>UpdatedAt</th>
+				<th>Edit</th>
+				<th>Delete</th>
+				
+			</tr>
+			<?php foreach ($result->getData() as $shipping):  ?>
+			<tr>
+				<td><?php  echo $shipping->shipping_id;?> </td>
+				<td><?php echo $shipping->name;?></td>
+				<td><?php echo $shipping->amount;?></td>
+				<td><?php echo $shipping->getStatustext();?></td>
+				<td><?php echo $shipping->create_at;?></td>
+				<td><?php echo $shipping->update_at;?></td>
+				<td><a href="<?php echo $this->getUrl('shipping','edit',
+				['shipping_id'=>$shipping->shipping_id]);?>">Edit</a></td>
+				<td><a href="<?php echo $this->getUrl('shipping','delete',['shipping_id'=>$shipping->shipping_id]);?>">Delete</a></td>
+				
+			</tr>
+			<?php endforeach; ?>
+		</table>

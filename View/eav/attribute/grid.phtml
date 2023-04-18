@@ -1,0 +1,47 @@
+<?php
+$result=$this->getAttribute();
+?>
+
+		<div class="row">
+			<div class="col-10">
+				<h3>ATTRIBUTE </h3>
+			</div>
+			<div class="col-2">
+				
+		<div class="btn btn-info link-secondary"><a href="<?php echo $this->getUrl('Eav_attribute','add'); ?>">ADD ATTRIBUTE</a></div>
+			</div>
+		</div>
+		
+		<table class="table table-bordered w-100">
+			
+			<tr class="table">
+				<th>Attribute Id</th>
+				<th>Entity Type Id</th>
+				<th>Code</th>
+				<th>Backend Type</th>
+				<th>Name</th>
+				<th>InputType</th>
+				<th>Status</th>
+				<th>BackendModel</th>
+				<th>Edit</th>
+				<th>Delete</th>
+
+			</tr>
+			
+			<?php foreach ($result->getData() as $attribute):  ?>
+			<tr>
+				<td><?php  echo $attribute->attribute_id;?> </td>
+				<td><?php echo $attribute->entity_type_id;?></td>
+				<td><?php echo $attribute->code;?></td>
+				<td><?php echo $attribute->backend_type;?></td>
+				<td><?php echo $attribute->name;?></td>
+				<td><?php echo $attribute->input_type;?></td>
+				<td><?php echo $attribute->getstatustext();?></td>
+				<td><?php echo $attribute->backend_model;?></td>
+				<td><a href="<?php echo $this->getUrl('eav_attribute','edit',
+				['attribute_id'=>$attribute->attribute_id]);?>">Edit</a></td>
+				<td><a href="<?php echo $this->getUrl('eav_attribute','delete',['attribute_id'=>$attribute->attribute_id]);?>">Delete</a></td>
+				
+			</tr>
+			<?php endforeach; ?>
+		</table>

@@ -1,0 +1,46 @@
+ <?php
+$result = $this->admin;
+?> 
+<form action="<?php echo $this->getUrl('admin','save');?>" method="post">
+<div class="container mt-3"><br>
+    <div class="row">
+        <div class="col-9">
+            <h3>ADD / EDIT ADMIN</h3>
+        </div>
+        <div class="col-1">
+            <button type="submit" value="submit" class="btn btn-primary">CANCLE</button>
+        </div>
+        <div class="col-2">
+            <button type="submit" value="submit" class="btn btn-primary">SAVE</button>
+        </div>
+    </div> 
+</div>  
+<div class="container mt-3">
+    <table class="table table-bordered w-100">
+        <thead>
+            <tr>
+                <th colspan="1">ADMIN INFORMATION</th>        
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="col-6"></td>
+                <td> <input class="col-6" type="hidden" id="admin_id" name="admin[admin_id]" value="<?php echo $result->admin_id ?>"></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td> <input class="col-6" type="text" id="email" name="admin[email]" value="<?php echo $result->email  ?>"></td>
+            </tr>
+            <td>Status</td>
+                <td> 
+                    <select name="admin[status]" id="status" class="col-6">
+					<?php foreach ($result->getResource()->getStatusOptions() as $key => $value): ?>
+					<option value="<?php echo $key ?>"><?php echo $value ?></option>
+					<?php endforeach; ?>
+					 
+                    </select>
+                </td>
+            </tbody>
+        </table>
+    </div>
+</form>

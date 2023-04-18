@@ -1,0 +1,43 @@
+<?php
+$data = $this->getCollection();
+	?>
+
+    <div class="container-fluid"><br>
+    <div class="row">
+        <div class="col-8">
+            <h3> ADMIN</h3>
+        </div>
+        <div class="col-4">
+            <button type="button" class="btn btn-primary"><a href="<?php echo $this->getUrl('admin','add'); ?>" class="link-light">Add Admin</a></button>
+        </div>
+    </div><br>
+<table class="table table-bordered w-100">
+    <thead>
+    <tr>
+		<th>AdminId</th>		
+		<th>email</th>		
+		<th>status</th>		
+		<th>Created At</th>	
+		<th>Updated At</th>	
+		<th>Edit</th>	
+		<th>Delete</th>	
+    </tr>
+    </thead>
+    <tbody>
+    <?php
+    foreach($data->getData() as $row):
+    ?>
+        <tr>
+			<td><?php echo $row->admin_id;?></td>
+			<td><?php echo $row->email;?></td>
+			<td><?php echo $row->getstatustext();?></td>
+			<td><?php echo $row->create_at;?></td>
+			<td><?php echo $row->update_at;?></td>
+			<td><a href="<?php echo $this->getUrl('admin','edit',['admin_id'=>$row->admin_id]);?>">Edit</a></td>
+			<td><a href="<?php echo $this->getUrl('admin','delete',['admin_id'=>$row->admin_id]);?>">Delete</a></td>
+        </tr>
+   <?php endforeach; ?>
+    </tbody>
+</table>
+</div>
+

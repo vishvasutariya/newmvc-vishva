@@ -1,0 +1,95 @@
+<?php
+echo "<pre>";
+	
+	 $id = $this->getRequest()->getParam('salesman_id');
+
+	$salesmans= $this->getPrice();
+	$salesmanprice = $this->getSalesman();
+	// print_r($data1);
+	 	// 	$adapter= new adapter();
+		// $result = $adapter->fetchAll($sql);
+
+	// $sql="SELECT * FROM `product`";
+	// $products=$this->getModelPrice()->fetchAll($sql);
+
+
+?>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<form action="<?php echo $this->getUrl()->getUrl('salesman_price','update');?>" method="POST">
+			
+	
+	<table border="1px" width="100%">
+		<tr>
+			<td>
+			 salesman :: 
+			 <!-- </td>
+			 <td> --> 
+				<select name="data" onchange="change(this.value)">
+					<!-- <option value="0">select</option> -->
+					<?php foreach ($salesmans as $salesman): ?>
+					<option value="<?php echo $salesman['salesman_id'];?>">
+						<?php echo $salesman['fname']; ?></option>
+						 		<?php endforeach; ?>
+
+				</select>
+
+			</td>
+				<td>
+
+			<button value="update" name="action" type="submit">update</button>
+		</td>
+		<td>
+			<button value="delete" name="action">delete</button>
+			 		
+				</td>
+			 
+		</tr>
+
+	</table>
+	<br>
+	<br>
+
+	<table border="1px" width="100%">
+		<tr> 
+			<td>PRODUCT ID</td>
+			<td>NAME</td>
+			<td>SKU</td>
+			<td>COST</td>
+			<td>PRICE</td>
+			<td>S PRICE</td>
+			<td> REMOVE</td>
+
+		</tr>
+
+		<?php  foreach ($salesmanprice as $product): ?>
+		<tr>
+			<td><?php echo $product['product_id'];?></td>
+			<td><?php echo $product['name'];?></td>
+			<td><?php echo $product['sku'] ?></td>
+			<td><?php echo $product['cost'] ?></td>
+			<td><?php  echo $product['price']?></td>
+			<td><input type="number" name="sprice[<?php echo $product['product_id'];?>]" 
+				value="<?php echo $product['salesman_price'];?>"></td>
+			<td><input type="checkbox" name="deletep[<?php echo $product['entity_id'];?>]"></td>
+		</tr>
+	<?php endforeach; ?>
+
+	</table>
+</form>
+ <script type="text/javascript">
+		function change(value)
+		{
+		window.location.assign('http://localhost/new_project/index.php?a=grid&c=salesman_price&salesman_id='+value);
+		 }
+	</script> 
+</body>
+</html>

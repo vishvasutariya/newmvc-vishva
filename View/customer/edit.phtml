@@ -1,0 +1,52 @@
+ <?php
+$customer = $this->customer;
+?> 
+
+	<form action="<?php echo $this->getUrl('customer','save');?>" method="POST">
+		<table width="20%">
+			<tr>
+				<td><h3>Edit Customer</h3></td>
+				<td><button class="btn btn-primary">SAVE</button></td>
+			</tr>
+		</table>
+		<table>
+			<tr>
+				<td>Fname :</td>
+				<td><input  type="text" name="customer[fname]" value="<?php echo $customer->fname;?>"></td>
+			</tr>
+			<tr>
+				<td>Lname :</td>
+				<td><input  type="text" name="customer[lname]" value="<?php echo $customer->lname;?>"></td>
+			</tr>
+			<tr>
+				<td>Email :</td>
+				<td><input type="text" name="customer[email]" value="<?php echo $customer->email;?>"></td>
+			</tr>
+			<tr>
+				<td>Gender :</td>
+				<td>
+					<select name="customer[gender]" value="<?php echo $customer->gender;?>">
+						<option>Female</option>
+						<option>Male</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>Moble :</td>
+				<td><input type="number" name="customer[mobile]" value="<?php echo $customer->mobile;?>"></td>
+			</tr>
+			<tr>
+					<td> Status</td>
+					<td> <select name="customer[status]" >
+						<?php foreach ($customer->getResource()->getStatusOptions() as $key => $value): ?>
+						<option value="<?php echo $key ?>"><?php echo $value ?></option>
+						<?php endforeach; ?>
+						
+					</select> </td>
+				</tr>
+		<?php require_once 'View\customer_address\edit.phtml'; ?>
+		<tr>
+			<td><input type="checkbox" class="checkbox-inline"> Add shipping Address</td>
+		</tr>
+		</table>
+	</form>

@@ -1,0 +1,58 @@
+  <?php
+    $result=$this->getCollection();
+  ?>
+
+	 <div class="row">
+	 	<div class="col-10">
+	 		<h3>SALESMAN</h3>
+	 	</div>
+	 	<div class="col-2">
+	 		
+		 <div class="btn btn-info link-secondary"><a href="<?php echo $this->getUrl('salesman','add'); ?>">ADD SALESMAN
+		</a></div> 
+	 	</div>
+	 </div>
+	<table class="table table-bordered table-hover w-100 ">
+		
+		<tr>
+			<th>SalesmanId</th>
+			<th>FirstName</th>
+			<th>LastName</th>
+			<th>Email</th>
+			<th>Gender</th>
+			<th>Mobile</th>
+			<th>Status</th>
+			<th>Company</th>
+			<th>CreatedAt</th>
+			<th>UpdatedAt</th>
+			<th>Edit</th>
+			<th>Delete</th>
+			<th>Address</th>
+			<th>price</th>
+			 
+		</tr>
+		  	<?php foreach ($result->getData() as $salesman):  ?>
+		<tr>
+			<td><?php  echo $salesman->salesman_id;?> </td>
+			<td><?php echo $salesman->fname;?></td>
+			<td><?php echo $salesman->lname;?></td>
+			<td><?php echo $salesman->email;?></td>
+			<td><?php echo $salesman->gender;?></td>
+			<td><?php echo $salesman->mobile;?></td>
+			<td><?php echo $salesman->status;?></td>
+			<td><?php echo $salesman->company;?></td>
+			<td><?php echo $salesman->create_at;?></td>
+			<td><?php echo $salesman->update_at;?></td>
+			<td><a href="<?php echo $this->getUrl('salesman','edit',['salesman_id'=>$salesman->salesman_id]);?>">Edit</a></td>
+			<td><a href="<?php echo $this->getUrl('salesman','delete',['salesman_id'=>$salesman->salesman_id]);?>">Delete</a></td>
+			<td><a href="<?php echo $this->getUrl('salesman_address','grid',['salesman_id'=>$salesman->salesman_id]);?>">Address</a></td>
+			<td><a href="<?php echo $this->getUrl('salesman_price','grid',['salesman_id'=>$salesman->salesman_id]);?>">price</a></td> 
+			
+			
+		</tr>
+	<?php endforeach; ?>
+
+	</table>
+
+</body>
+</html>

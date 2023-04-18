@@ -1,0 +1,56 @@
+  <?php
+    $result=$this->getCollection();;
+  ?>
+
+	 <div class="row">
+	 	<div class="col-10">
+	 		<h3>VENDOR</h3>
+	 	</div>
+	 	<div class="col-2">
+	 		
+			 <div class="btn btn-light"><a href="<?php echo $this->getUrl('vendor','add'); ?>">ADD VENDOR
+			</a></div> 
+	 	</div>
+	</div>
+	<table class="table table-bordered table-hover w-100">
+		
+		<tr>
+			<th>VendorId</th>
+			<th>FirstName</th>
+			<th>LastName</th>
+			<th>Email</th>
+			<th>Gender</th>
+			<th>Mobile</th>
+			<th>Status</th>
+			<th>Company</th>
+			<th>CreatedAt</th>
+			<th>UpdatedAt</th>
+			<th>Edit</th>
+			<th>Delete</th>
+			<th>Address</th>
+			 
+		</tr>
+		  	<?php foreach ($result->getData() as $vendor):  ?>
+		<tr>
+			<td><?php  echo $vendor->vendor_id;?> </td>
+			<td><?php echo $vendor->fname;?></td>
+			<td><?php echo $vendor->lname;?></td>
+			<td><?php echo $vendor->email;?></td>
+			<td><?php echo $vendor->gender;?></td>
+			<td><?php echo $vendor->mobile;?></td>
+			<td><?php echo $vendor->status;?></td>
+			<td><?php echo $vendor->company;?></td>
+			<td><?php echo $vendor->create_at;?></td>
+			<td><?php echo $vendor->update_at;?></td>
+			<td><a href="<?php echo $this->getUrl('vendor','edit',['vendor_id'=>$vendor->vendor_id]);?>">Edit</a></td>
+			<td><a href="<?php echo $this->getUrl('vendor','delete',['vendor_id'=>$vendor->vendor_id]);?>">Delete</a></td>
+			<td><a href="<?php echo $this->getUrl('vendor_address','grid',['vendor_id'=>$vendor->vendor_id]);?>">view Address</a></td>
+			
+			
+		</tr>
+	<?php endforeach; ?>
+
+	</table>
+
+</body>
+</html>

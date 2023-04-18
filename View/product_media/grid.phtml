@@ -1,0 +1,54 @@
+<?php
+ $result=$this->media;
+?>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Image grid</title>
+</head>
+
+<body>
+
+	<form action="<?php echo $this->getUrl()->getUrl('product_media','update');?>" method="POST">
+		   
+		  <button name="save">SAVE</button>
+		  <a style="text-decoration: none;" href="<?php echo $this->getUrl()->getUrl('product_media','add');?>">add image</a>
+		<br>
+		<br>
+		  
+<table border="1px" width="80%">
+	<tr>
+		<th>Image_id</th>
+		<th>Image</th>
+		<th>Name</th>
+		<th>Thumbnail</th>
+		<th>Base</th>
+		<th>Small</th>
+		<th>Gallary</th>
+		<th>CreateDate</th>
+		<th><a>Delete </a></th>
+	</tr>
+	<?php foreach ($result as $image): ?>
+	 
+	<tr>
+		<td><input style="border: 0px ;" name="image_id"value="<?php echo $image->image_id;?>"></td>
+		<td><img src="View/product_media/image/<?php echo $image->image; ?>"style="width: 100px; height: 100px;"></td>
+		<td><?php echo $image->filename;?></td>
+		<td><input type="radio" name="thumb" value="<?php echo $image->image_id;?>" <?php if($image->thumb!=0) {echo "checked";} ?>></td>
+		<td><input type="radio" name="base" value="<?php echo $image->image_id;?>" <?php if($image->base!=0) {echo "checked";} ?>> </td>
+		<td><input type="radio" name="small" value="<?php echo $image->image_id;?>" <?php if($image->small!=0) {echo "checked";} ?>> </td>
+		<td><input type="checkbox" name="gallery[]" value="<?php echo $image->image_id;?>" <?php if($image->gallery!=0) {echo "checked";} ?>></td>
+		<td><?php echo $image->create_at;?></td>
+		
+		 
+		<td><input type="checkbox" name="delete[]" value="<?php echo $image->image_id ?>"> </td>
+	 
+	</tr>
+	<?php endforeach;?>
+	 
+</table>
+
+</body>
+</html> 
