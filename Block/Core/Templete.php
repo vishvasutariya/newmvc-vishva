@@ -12,6 +12,23 @@ class Block_Core_Templete extends Model_Core_View
 		parent::__construct();
 	}
 
+	public function getChildHtml($key)
+	{
+		if($child = $this->getChild($key)){
+			return $child->toHtml();
+		}
+		return null;
+	}
+
+	public function tohtml()
+	{
+		ob_start();
+		$this->render();
+		$content = ob_get_contents();
+		ob_end_clean();
+		return $content;	
+	}
+
 	public function setLayout(Block_Core_Layout $layout)
 	{
 		$this->layout = $layout;

@@ -1,0 +1,45 @@
+<?php
+$brand = $this->brand;
+?>
+		<form action="<?php echo $this->getUrl('brand','save');?>" method="POST">
+		<div class="container mt-3"><br>
+			<div class="row">
+				<div class="col-9">
+					<h3>ADD / EDIT BRAND</h3>
+				</div>
+				<div class="col-1">
+					<button type="submit" value="submit" class="btn btn-primary">CANCLE</button>
+				</div>
+				<div class="col-2">
+					<button type="submit" value="submit" class="btn btn-primary">SAVE</button>
+				</div>
+			</div> 
+		</div>  
+		<div class="container mt-3">
+			<table class="table table-bordered w-100">
+				<thead>
+					<tr>
+						<th colspan="1">BRAND INFORMATION</th>        
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="col-6"></td>
+						<td> <input class="col-6" type="hidden" id="brand_id" name="brand[brand_id]" value="<?php echo $brand->brand_id ?>"></td>
+					</tr>
+					<tr>
+						<td>Name</td>
+						<td> <input class="col-6" type="text" id="name" name="brand[name]" value="<?php echo $brand->name  ?>"></td>
+					</tr>
+					<tr>
+						<td>Description</td>
+						<td> <textarea class="col-6" type='textarea' id="description" name="brand[description]" ?></textarea></td>
+					</tr>
+					<tr>
+						<td>Image</td>
+						<td> <input class="col-6" type="text" id="image" name="brand[image]" value="<?php echo $brand->image ?>"></td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</form>

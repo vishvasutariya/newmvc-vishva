@@ -12,7 +12,9 @@ class Model_Core_Session
 
 	public function start()
 	{
-		session_start();
+		if(session_status() == 1){
+			session_start();
+		}
 		return $this;
 	}
 
@@ -48,11 +50,15 @@ class Model_Core_Session
 
 	public function has($key)
 	{
+		// var_dump(session_status());	
+		$this->start();
 		if (array_key_exists($key,$_SESSION)) 
 		{
 			return true;
 		}
 		return false;
 	}
+
+
 }
 ?>
