@@ -1,0 +1,41 @@
+<?php
+$brands = $this->getCollection();
+?>
+<div class="container-fluid"><br>
+        <div class="row">
+            <div class="col-8">
+                <h3> BRANDS</h3>
+            </div>
+            <div class="col-4">
+                <button type="button" class="btn btn-primary"><a href="<?php echo $this->getUrl('brand','add'); ?>" class="link-light">Add brand</a></button>
+            </div>
+        </div><br>
+    <table class="table table-bordered w-100">
+        <thead>
+			<tr>
+				<th>Brand Id</th>
+				<th>Name</th>
+				<th>Description </th>
+				<th>Image</th>
+				<th>CreatedAt</th>
+				<th>UpdatedAt</th>
+				<th>Edit</th>
+				<th>Delete</th>
+				
+			</tr>
+	</thead>
+
+			<?php foreach ($brands->getData() as $brand):  ?>
+			<tr>
+				<td><?php echo $brand->brand_id;?></td>
+				<td><?php echo $brand->name;?></td>
+				<td><?php echo $brand->description;?></td>
+				<td><?php echo $brand->image;?></td>
+				<td><?php echo $brand->create_at;?></td>
+				<td><?php echo $brand->update_at;?></td>
+				<td><a href="<?php echo $this->getUrl('brand','edit',['brand_id'=>$brand->brand_id]);?>">Edit</a></td>
+				<td><a href="<?php echo $this->getUrl('brand','delete',['brand_id'=>$brand->brand_id]);?>">Delete</a></td>				
+			</tr>
+			<?php endforeach; ?>
+		</table>
+	</form>
